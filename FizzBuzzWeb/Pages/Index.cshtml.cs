@@ -38,6 +38,7 @@ namespace FizzBuzzWeb.Pages
                     Zmienna.Wiadomosc = "fizz";
                 else
                     Zmienna.Wiadomosc = $"Liczba {Zmienna.Liczba} nie spełnia kryteriów Fizz/Buzz";
+                Zmienna.Czas = DateTime.Now;
                 HttpContext.Session.SetString("SesjaZmienna", JsonConvert.SerializeObject(Zmienna));
             }
         }
