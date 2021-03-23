@@ -1,0 +1,26 @@
+﻿@page 
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+
+
+<div class="text-left">
+    <h4 class="display-4">Formularz</h4>
+    <p>Podaj liczbę całkowitą z przedziału od 1 do 1000</p>
+    
+    <form method="post">
+        <b><span asp-validation-for="Liczba" class="text-danger"></span></b>
+        <div> Liczba: <input type="number" name="liczba" /></div>
+        <br />
+        <div> <button type="submit" class="btn btn-outline-primary">Zatwierdź</button></div>
+    </form>
+
+    <p>@Model.Wiadomosc</p>
+   
+
+  
+
+</div>
