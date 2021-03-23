@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using FizzBuzzWeb.Models;
 
 namespace FizzBuzzWeb.Pages
 {
@@ -20,11 +21,7 @@ namespace FizzBuzzWeb.Pages
             _logger = logger;
         }
         [BindProperty]
-        [Range(1, 1000)]
-        public int Liczba { get; set; }
-
-        
-        public string Wiadomosc { get; set; }
+        public Wartosc Zmienna { get; set; }
         public void OnGet()
         {
 
@@ -33,15 +30,17 @@ namespace FizzBuzzWeb.Pages
         {
             if (ModelState.IsValid)
             {
-                if (Liczba % 15 == 0)
-                    Wiadomosc = "fizzbuzz";
-                else if (Liczba % 5 == 0)
-                    Wiadomosc = "buzz";
-                else if (Liczba % 3 == 0)
-                    Wiadomosc = "fizz";
+                if (Zmienna.Liczba % 15 == 0)
+                    Zmienna.Wiadomosc = "fizzbuzz";
+                else if (Zmienna.Liczba % 5 == 0)
+                    Zmienna.Wiadomosc = "buzz";
+                else if (Zmienna.Liczba % 3 == 0)
+                    Zmienna.Wiadomosc = "fizz";
                 else
-                    Wiadomosc = $"Liczba {Liczba} nie spełnia kryteriów Fizz/Buzz";
+                    Zmienna.Wiadomosc = $"Liczba {Zmienna.Liczba} nie spełnia kryteriów Fizz/Buzz";
+                HttpContext.Session.SetString("SesjaZmienna", JsonConvert.SerializeObject(Zmienna));
             }
         }
+        
     }
 }
