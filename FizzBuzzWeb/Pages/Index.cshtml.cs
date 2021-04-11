@@ -22,6 +22,17 @@ namespace FizzBuzzWeb.Pages
         }
         [BindProperty]
         public Wartosc Zmienna { get; set; }
+        public void Fizzbuzz()
+        {
+            if (Zmienna.Liczba % 15 == 0)
+                Zmienna.Wiadomosc = "fizzbuzz";
+            else if (Zmienna.Liczba % 5 == 0)
+                Zmienna.Wiadomosc = "buzz";
+            else if (Zmienna.Liczba % 3 == 0)
+                Zmienna.Wiadomosc = "fizz";
+            else
+                Zmienna.Wiadomosc = $"Liczba {Zmienna.Liczba} nie spełnia kryteriów Fizz/Buzz";
+        }
         public void OnGet()
         {
 
@@ -30,14 +41,7 @@ namespace FizzBuzzWeb.Pages
         {
             if (ModelState.IsValid)
             {
-                if (Zmienna.Liczba % 15 == 0)
-                    Zmienna.Wiadomosc = "fizzbuzz";
-                else if (Zmienna.Liczba % 5 == 0)
-                    Zmienna.Wiadomosc = "buzz";
-                else if (Zmienna.Liczba % 3 == 0)
-                    Zmienna.Wiadomosc = "fizz";
-                else
-                    Zmienna.Wiadomosc = $"Liczba {Zmienna.Liczba} nie spełnia kryteriów Fizz/Buzz";
+                Fizzbuzz();
                 Zmienna.Czas = DateTime.Now;
                 HttpContext.Session.SetString("SesjaZmienna", JsonConvert.SerializeObject(Zmienna));
             }
