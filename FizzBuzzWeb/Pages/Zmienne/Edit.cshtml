@@ -1,0 +1,45 @@
+﻿@page
+@model FizzBuzzWeb.Pages.Zmienne.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Wartosc</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Wartosc.Id" />
+            <div class="form-group">
+                <label asp-for="Wartosc.Liczba" class="control-label"></label>
+                <input asp-for="Wartosc.Liczba" class="form-control" />
+                <span asp-validation-for="Wartosc.Liczba" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wartosc.Wiadomosc" class="control-label"></label>
+                <input asp-for="Wartosc.Wiadomosc" class="form-control" />
+                <span asp-validation-for="Wartosc.Wiadomosc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wartosc.Czas" class="control-label"></label>
+                <input asp-for="Wartosc.Czas" class="form-control" />
+                <span asp-validation-for="Wartosc.Czas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
