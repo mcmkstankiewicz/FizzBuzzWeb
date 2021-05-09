@@ -1,0 +1,46 @@
+﻿@page
+@model FizzBuzzWeb.Pages.Zmienne.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Wartosc[5].Liczba)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wartosc[5].Wiadomosc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wartosc[5].Czas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Wartosc) {
+        
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Liczba)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wiadomosc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Czas)
+            </td>
+            <td>
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+
+}
+    </tbody>
+</table>

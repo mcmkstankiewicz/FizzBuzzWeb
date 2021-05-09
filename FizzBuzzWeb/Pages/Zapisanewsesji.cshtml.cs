@@ -10,7 +10,7 @@ using FizzBuzzWeb.Models;
 
 namespace FizzBuzzWeb.Pages
 {
-    public class OstatnioSzukaneModel : PageModel
+    public class ZapisanewsesjiModel : PageModel
     {
         public Wartosc Zmienna { get; set; }
 
